@@ -1,15 +1,15 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:maya_app/app/modules/test/test_bloc.dart';
+import 'package:maya_app/app/modules/ano/ano_bloc.dart';
 import 'package:flutter/material.dart';
 
-class TestPage extends StatefulWidget {
+class AnoPage extends StatefulWidget {
   final String title;
-  const TestPage({Key? key, this.title = 'TestPage'}) : super(key: key);
+  const AnoPage({Key? key, this.title = 'AnoPage'}) : super(key: key);
   @override
-  TestPageState createState() => TestPageState();
+  AnoPageState createState() => AnoPageState();
 }
-class TestPageState extends State<TestPage> {
-  final TestBloc bloc = Modular.get();
+class AnoPageState extends State<AnoPage> {
+  final AnoBloc bloc = Modular.get();
 
   @override
   Widget build(BuildContext context) {
