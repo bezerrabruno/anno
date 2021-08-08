@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../bloc/buttom_bar_bloc.dart';
+import '/app/modules/home/bloc/buttom_bar_bloc.dart';
 
 class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   final List<String> titles;
