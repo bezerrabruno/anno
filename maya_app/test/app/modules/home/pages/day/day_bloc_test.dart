@@ -1,11 +1,11 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:maya_app/app/modules/home/pages/day/day_bloc.dart';
+import 'package:maya_app/app/modules/home/pages/day/bloc/cards_day_bloc.dart';
 
 void main() {
-  blocTest<DayBloc, int>(
+  blocTest<CardsDayBloc, int>(
     'emits [1] when increment is added',
-    build: () => DayBloc(),
-    act: (bloc) => bloc.add(DayEvent.increment),
+    build: () => CardsDayBloc(),
+    act: (bloc) => bloc.add(CardsDayEvent.updateCardDay),
     expect: () => [1],
   );
 }

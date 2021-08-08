@@ -1,15 +1,17 @@
-import 'package:maya_app/app/modules/home/pages/day/day_Page.dart';
-import 'package:maya_app/app/modules/home/pages/day/day_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import 'bloc/cards_day_bloc.dart';
+import 'day_Page.dart';
 
 class DayModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => DayBloc()),
+    Bind.lazySingleton((i) => CardsDayBloc()),
   ];
 
   @override
   final List<ModularRoute> routes = [
     ChildRoute('/', child: (_, args) => DayPage()),
+    //ModuleRoute('/task', module: TaskModule()),
   ];
 }
