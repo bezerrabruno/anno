@@ -3,15 +3,18 @@ import '../../domain/entities/day.dart';
 class DayModel extends Day {
   String? name;
   List? tasks;
-  List? leisure;
+  List? leisures;
+  List? all;
 
-  DayModel({this.name, this.tasks, this.leisure}) : super('', [], []);
+  DayModel({this.name, this.tasks, this.leisures, this.all})
+      : super('', [], [], []);
 
   DayModel fromMap(Map<String, dynamic> map) {
     return DayModel(
       name: map['name'],
       tasks: map['tasks'],
-      leisure: map['leisure'],
+      leisures: map['leisure'],
+      all: map['tasks'] + map['leisure'],
     );
   }
 
@@ -19,7 +22,7 @@ class DayModel extends Day {
     return {
       'name': name,
       'tasks': tasks,
-      'leisure': leisure,
+      'leisure': leisures,
     };
   }
 }

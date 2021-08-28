@@ -49,7 +49,7 @@ class DayPageState extends State<DayPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 8.h,
+                    height: 10.h,
                     width: double.maxFinite,
                     child: Center(
                       child: Text(
@@ -58,80 +58,21 @@ class DayPageState extends State<DayPage> {
                       ),
                     ),
                   ),
-                  Center(
-                    child: Container(
-                      height: 35.h,
-                      width: 80.w,
-                      margin: const EdgeInsets.all(8),
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      child: Column(
-                        children: [
-                          Center(
-                            child: Text(
-                              'Tasks',
+                  SizedBox(
+                    height: 75.h,
+                    width: double.maxFinite,
+                    child: Expanded(
+                      child: ListView.builder(
+                          itemCount: state.day.all!.length,
+                          itemBuilder: (context, index) {
+                            return Text(
+                              state.day.all![index],
                               style: TextStyle(
-                                color: Colors.white,
+                                color: Theme.of(context).primaryColor,
                                 fontSize: 26.sp,
                               ),
-                            ),
-                          ),
-                          Expanded(
-                            child: ListView.builder(
-                                itemCount: state.day.tasks!.length,
-                                itemBuilder: (context, index) {
-                                  return Text(
-                                    state.day.tasks![index],
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 26.sp,
-                                    ),
-                                  );
-                                }),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Center(
-                    child: Container(
-                      height: 35.h,
-                      width: 80.w,
-                      margin: const EdgeInsets.all(8),
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      child: Column(
-                        children: [
-                          Center(
-                            child: Text(
-                              'Laisure',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 26.sp,
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: ListView.builder(
-                                itemCount: state.day.leisure!.length,
-                                itemBuilder: (context, index) {
-                                  return Text(
-                                    state.day.leisure![index],
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 26.sp,
-                                    ),
-                                  );
-                                }),
-                          ),
-                        ],
-                      ),
+                            );
+                          }),
                     ),
                   ),
                 ],
