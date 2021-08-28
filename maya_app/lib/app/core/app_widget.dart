@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:maya_app/app/core/widgets/my_theme_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AppWidget extends StatelessWidget {
@@ -10,9 +11,9 @@ class AppWidget extends StatelessWidget {
         return MaterialApp(
           title: 'Maya',
           initialRoute: '/home/day',
-          theme: ThemeData(primarySwatch: Colors.blue),
-          //darkTheme: ,
-          themeMode: ThemeMode.system,
+          theme: MyTheme().themeLight(),
+          darkTheme: MyTheme().themeDark(),
+          themeMode: ThemeMode.light,
         ).modular();
       },
     );

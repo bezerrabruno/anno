@@ -1,15 +1,9 @@
 /*import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:maya/app/core/repository/app_bo_repository.dart';
-import 'package:maya/app/core/repository/app_dao_repository.dart';
+import 'package:maya_app/app/core/repositories/day_store.dart';
+import 'package:maya_app/app/core/widgets/my_button_widget.dart';
+import 'package:maya_app/app/core/widgets/my_text_field_widget.dart';
+import 'package:maya_app/app/modules/home/pages/day/models/items_card_day.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
-import 'package:maya/app/core/widgets/my_button_widget.dart';
-
-import 'package:maya/app/modules/home/pages/day/models/items_card_day.dart';
-import 'package:maya/app/core/redux/app_state.dart';
-import 'package:maya/app/core/widgets/my_text_field_widget.dart';
-import 'package:maya/app/modules/home/pages/day/redux/day_action.dart';
 
 class PopUpDay extends StatelessWidget {
   final TextEditingController _controllerTitulo = TextEditingController();
@@ -65,9 +59,10 @@ class PopUpDay extends StatelessWidget {
 
       _store.setCardDay(_card.toMap());
 
-      StoreProvider.of<AppState>(context).dispatch(UpdateCardDay());
+      //StoreProvider.of<AppState>(context).dispatch(UpdateCardDay());
 
       Navigator.pop(context);
     }
   }
-}*/
+}
+*/

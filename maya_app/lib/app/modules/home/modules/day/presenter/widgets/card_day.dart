@@ -1,6 +1,9 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:maya_app/app/modules/home/Modules/day/widgets/popUp_card_day_widget.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '/app/modules/home/pages/day/models/items_card_day.dart';
+import '/app/modules/home/Modules/day/models/items_card_day.dart';
 
 class CardDay extends StatelessWidget {
   static String? taskAtual;
@@ -24,7 +27,6 @@ class CardDay extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              /*
               _title(context),
               Divider(
                 thickness: 2,
@@ -40,13 +42,13 @@ class CardDay extends StatelessWidget {
                 thickness: 2,
                 color: Colors.black,
               ),
-              _task(context, items?.task3),*/
+              _task(context, items?.task3),
             ],
           ),
         ));
   }
 
-  /*Future _showPopUp(BuildContext context) {
+  Future _showPopUp(BuildContext context) {
     return showDialog(
         context: context,
         builder: (context) {
@@ -100,7 +102,7 @@ class CardDay extends StatelessWidget {
             : title == items!.task2
                 ? taskAtual = title
                 : taskAtual = title;
-        Modular.to.pushNamed('task');
+        Modular.to.pushNamed('/task');
       },
       onLongPress: () {
         showDialog(
@@ -119,5 +121,5 @@ class CardDay extends StatelessWidget {
             });
       },
     );
-  }*/
-}
+  }
+}*/
