@@ -1,22 +1,22 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-enum ButtomBarEvent {
+enum PageHomeEvent {
   changePage0,
   changePage1,
 }
 
-class ButtomBarBloc extends Bloc<ButtomBarEvent, int> {
-  ButtomBarBloc() : super(0);
+class PageHomeBloc extends Bloc<PageHomeEvent, int> {
+  PageHomeBloc() : super(0);
 
   @override
-  Stream<int> mapEventToState(ButtomBarEvent event) async* {
+  Stream<int> mapEventToState(PageHomeEvent event) async* {
     switch (event) {
-      case ButtomBarEvent.changePage0:
+      case PageHomeEvent.changePage0:
         Modular.to.pushNamed('../day');
         yield 0;
         break;
-      case ButtomBarEvent.changePage1:
+      case PageHomeEvent.changePage1:
         Modular.to.pushNamed('../timer');
         yield 1;
         break;
