@@ -5,16 +5,21 @@ import '/app/core/widgets/my_appBar_widget.dart';
 import '/app/core/widgets/my_drawer_widget.dart';
 import '/app/core/widgets/my_buttomBar_widget.dart';
 
+import 'bloc/change_page_home_bloc.dart';
+
 class HomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
         titles: ['Day', 'Timer'],
+        barBloc: Modular.get<ChangePageHomeBloc>(),
       ),
       endDrawer: MyDrawer(),
       body: RouterOutlet(),
-      bottomNavigationBar: MyButtomBar(),
+      bottomNavigationBar: MyButtomBar(
+        barBloc: Modular.get<ChangePageHomeBloc>(),
+      ),
       extendBody: true,
     );
   }

@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '/app/modules/home/bloc/buttom_bar_bloc.dart';
 import 'my_float_button_widget.dart';
 
 class MyButtomBar extends StatelessWidget {
-  final ButtomBarBloc _barBloc = Modular.get();
+  final barBloc;
+
+  const MyButtomBar({
+    Key? key,
+    required this.barBloc,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
 
-    return BlocBuilder<ButtomBarBloc, int>(
-      bloc: _barBloc,
+    return BlocBuilder<Bloc<dynamic, int>, int>(
+      bloc: barBloc,
       builder: (context, index) {
         return Container(
           height: 6.5.h,
@@ -50,7 +53,7 @@ class MyButtomBar extends StatelessWidget {
     int index,
   ) {
     return GestureDetector(
-      onTap: () => _barBloc.add(ButtomBarEvent.changePage0),
+      //onTap: () => _barBloc.add(PageHomeEvent.changePage0),
       child: SizedBox(
         height: double.maxFinite,
         width: 20.w,
@@ -83,7 +86,7 @@ class MyButtomBar extends StatelessWidget {
       height: double.maxFinite,
       width: 20.w,
       child: GestureDetector(
-        onTap: () => _barBloc.add(ButtomBarEvent.changePage1),
+        //onTap: () => _barBloc.add(PageHomeEvent.changePage1),
         child: SizedBox(
           height: double.maxFinite,
           width: 20.w,
