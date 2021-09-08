@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
-class MyFloatbutton extends StatelessWidget {
-  final String? route;
+class MyFloatButton extends StatelessWidget {
   final Widget? popUp;
 
-  MyFloatbutton({
-    this.route,
+  MyFloatButton({
     this.popUp,
   });
 
@@ -14,35 +13,30 @@ class MyFloatbutton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (route != null) {
-          Modular.to.pushNamed(route!);
-        } else {
-          showDialog(
-              context: context,
-              builder: (context) {
-                return Dialog(
-                  child: popUp,
-                );
-              });
-        }
+        showDialog(
+            context: context,
+            builder: (context) {
+              return Dialog(
+                child: popUp,
+              );
+            });
       },
-      child: Container(
-        height: double.maxFinite,
-        width: double.maxFinite,
-        decoration: BoxDecoration(
-            color: Colors.white,
+      child: Material(
+        elevation: 10,
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(100),
+        child: Container(
+          height: 8.h,
+          width: 15.w,
+          decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor,
             shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black,
-                blurRadius: 20,
-                spreadRadius: 1,
-              ),
-            ]),
-        child: Icon(
-          Icons.add,
-          color: Color.fromRGBO(12, 12, 77, 1),
-          size: 36,
+          ),
+          child: Icon(
+            Icons.add,
+            color: Theme.of(context).backgroundColor,
+            size: 36,
+          ),
         ),
       ),
     );

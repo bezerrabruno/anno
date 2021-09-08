@@ -10,10 +10,10 @@ class AppWidget extends StatelessWidget {
       builder: (context, orientation, screenType) {
         return MaterialApp(
           title: 'Maya',
-          initialRoute: '/home/day',
-          theme: MyTheme().themeLight(),
-          darkTheme: MyTheme().themeDark(),
-          themeMode: ThemeMode.light,
+          initialRoute: '/home/days',
+          theme: MyTheme.lightTheme,
+          darkTheme: MyTheme.darkTheme,
+          themeMode: ThemeMode.system,
         ).modular();
       },
     );

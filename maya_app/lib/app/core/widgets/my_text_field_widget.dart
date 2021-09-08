@@ -20,7 +20,7 @@ class MyTextField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: title,
         labelStyle: TextStyle(
-          color: Colors.black,
+          color: Theme.of(context).primaryColorDark,
         ),
       ),
     );
