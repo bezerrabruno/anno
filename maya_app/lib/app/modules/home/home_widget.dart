@@ -11,6 +11,10 @@ class HomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
+        titles: ['Tasks'],
+        buttons: [Icons.calendar_today_outlined],
+        actions: [() => print('Aro')],
+        endDrawer: true,
         barBloc: Modular.get<ChangePageHomeBloc>(),
       ),
       //endDrawer: MyDrawer(),
