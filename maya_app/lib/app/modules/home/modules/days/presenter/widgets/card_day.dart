@@ -1,59 +1,88 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:maya_app/app/modules/home/modules/days/presenter/bloc/list_day/list_day_event.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../infra/model/task_model.dart';
 
-import '../bloc/card_day/card_day_bloc.dart';
+import '../bloc/list_day/list_day_event.dart';
 import '../bloc/list_day/list_day_bloc.dart';
 
 class CardTask extends StatelessWidget {
   final Key key;
+  final int index;
   final TaskModel task;
 
-  final CardDayBloc _cardDayBloc = Modular.get();
   final ListDayBloc _listDayBloc = Modular.get();
 
-  CardTask(this.key, this.task);
+  CardTask(
+    this.key,
+    this.index,
+    this.task,
+  );
 
   @override
   build(BuildContext context) {
-    _cardDayBloc.add(task);
-    return Container(
-      key: key,
-      height: 8.h,
-      width: double.maxFinite,
-      margin: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-      decoration: BoxDecoration(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      child: SizedBox(
+        height: 7.h,
+        width: double.maxFinite,
+        child: Material(
+          key: key,
+          color: Theme.of(context).primaryColorLight,
           borderRadius: BorderRadius.circular(24),
-          color: Theme.of(context).primaryColorLight),
-      child: BlocBuilder<CardDayBloc, TaskModel>(
-          bloc: _cardDayBloc,
-          builder: (context, state) {
-            return Row(
+          child: SizedBox(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Checkbox(
-                    value: state.chekBox,
+                    value: task.chekBox!,
                     onChanged: (bool? newValue) {
                       var newTesk = TaskModel(
                         chekBox: newValue,
-                        description: state.description,
-                        priority: state.priority,
-                        type: state.type,
+                        description: task.description,
+                        priority: task.priority,
+                        type: task.type,
                       );
-                      _cardDayBloc.add(newTesk);
-                      _listDayBloc
-                          .add(ListDayEventUpdateTask(this.key, newTesk));
+                      _listDayBloc.add(ListDayEventUpdateTask(index, newTesk));
                     }),
-                Text(
-                  state.description!,
-                  style: TextStyle(fontSize: 20.sp, color: Colors.white),
+                SizedBox(
+                  height: double.maxFinite,
+                  width: 55.w,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Center(
+                          child: Text(
+                            task.description!,
+                            style:
+                                TextStyle(fontSize: 20.sp, color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: SizedBox(
+                    height: double.maxFinite,
+                    width: 15.w,
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        task.priority!,
+                        style: TextStyle(fontSize: 16.sp, color: Colors.white),
+                      ),
+                    ),
+                  ),
                 ),
               ],
-            );
-          }),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -20,9 +20,14 @@ class ListDayBloc extends Bloc<ListDayEvent, List<TaskModel>> {
       newState.add(event.task);
       yield newState;
     } else if (event is ListDayEventUpdateTask) {
-      var newState = state;
+      var newState = <TaskModel>[];
+
+      for (var i = 0; i <= state.length - 1; i++) {
+        newState.add(state[i]);
+      }
 
       newState[int.tryParse(event.index.toString())!] = event.task;
+
       yield newState;
     } else if (event is ListDayEventReOrder) {
       var newState = <TaskModel>[];

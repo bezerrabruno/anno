@@ -59,6 +59,17 @@ class DayPageState extends State<DayPage> {
               ),
             ),
           ),
+          Center(
+            child: ElevatedButton(
+                onPressed: () {
+                  return updateDayBloc.add(
+                    DayModel(
+                        idName: widget.days[dateTime.weekday - 1],
+                        tasksM: listDayBloc.state),
+                  );
+                },
+                child: Text('Update')),
+          ),
           BlocBuilder<FindDayBloc, FindDayState>(
               bloc: findDayBloc,
               builder: (context, state) {
@@ -83,17 +94,6 @@ class DayPageState extends State<DayPage> {
                   return SizedBox();
                 }
               }),
-          Center(
-            child: ElevatedButton(
-                onPressed: () {
-                  return updateDayBloc.add(
-                    DayModel(
-                        idName: widget.days[dateTime.weekday - 1],
-                        tasksM: listDayBloc.state),
-                  );
-                },
-                child: Text('Update')),
-          ),
         ],
       ),
     );

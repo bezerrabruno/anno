@@ -23,8 +23,9 @@ class ListDayWidget extends StatelessWidget {
         builder: (context, tasks) {
           return ReorderableListView.builder(
             itemCount: tasks.length,
+            buildDefaultDragHandles: true,
             itemBuilder: (context, index) {
-              return CardTask(Key('$index'), tasks[index]);
+              return CardTask(Key('$index'), index, tasks[index]);
             },
             onReorder: (int oldIndex, int newIndex) {
               if (oldIndex < newIndex) {
@@ -32,7 +33,6 @@ class ListDayWidget extends StatelessWidget {
               }
               listDayBloc.add(ListDayEventReOrder(oldIndex, newIndex));
             },
-            
           );
         });
   }

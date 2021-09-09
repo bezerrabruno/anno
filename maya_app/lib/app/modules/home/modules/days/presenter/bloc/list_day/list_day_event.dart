@@ -18,7 +18,7 @@ class ListDayEventAddTask extends ListDayEvent {
 }
 
 class ListDayEventUpdateTask extends ListDayEvent {
-  final Key index;
+  final int index;
   final TaskModel task;
 
   const ListDayEventUpdateTask(this.index, this.task);
