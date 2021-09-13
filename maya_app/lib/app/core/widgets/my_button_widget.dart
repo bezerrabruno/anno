@@ -3,38 +3,38 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MyButton extends StatelessWidget {
   final String title;
+  final double? height;
   final double? width;
   final Color? color;
-  final Color? textColor;
-  final Function() function;
+  final TextStyle? textStyle;
+  final Function()? function;
 
-  MyButton({
+  const MyButton({
+    Key? key,
     required this.title,
+    this.height,
     this.width,
     this.color,
-    this.textColor,
-    required this.function,
-  });
+    this.textStyle,
+    this.function,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
       elevation: 10,
       color: color ?? Theme.of(context).primaryColor,
-      borderRadius: BorderRadius.circular(6),
+      borderRadius: BorderRadius.circular(24),
       child: InkWell(
-        enableFeedback: true,
-        onTap: function,
+        onTap: function ?? () => true,
+        borderRadius: BorderRadius.circular(24),
         child: SizedBox(
-          height: 4.5.h,
+          height: height ?? 4.5.h,
           width: width ?? 100.w,
           child: Center(
             child: Text(
               title,
-              style: TextStyle(
-                color: textColor ?? Theme.of(context).backgroundColor,
-                fontSize: 16.sp,
-              ),
+              style: textStyle ?? Theme.of(context).textTheme.button,
             ),
           ),
         ),

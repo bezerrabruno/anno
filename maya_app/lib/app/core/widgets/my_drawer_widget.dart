@@ -1,64 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MyDrawer extends StatelessWidget {
+  const MyDrawer({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 190,
+      width: 40.w,
+      height: 98.h,
       child: Drawer(
         child: Container(
-          color: Color.fromRGBO(12, 12, 77, 25),
-          child: ListView(
-            children: [
-              ListTile(
-                leading: Icon(
-                  Icons.list_alt,
-                  color: Colors.white,
+          color: Theme.of(context).primaryColorDark,
+          child: SafeArea(
+            child: Column(
+              children: [
+                ListTile(
+                  leading: Icon(
+                    Icons.list_alt,
+                    color: Theme.of(context).backgroundColor,
+                  ),
+                  title: Text(
+                    'Routine',
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
+                  onTap: () => true,
                 ),
-                title: Text('Tarefas',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    )),
-                onTap: () => true,
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.filter_1,
-                  color: Colors.white,
+                ListTile(
+                  leading: Icon(
+                    Icons.filter_1,
+                    color: Theme.of(context).backgroundColor,
+                  ),
+                  title: Text(
+                    'ANNO',
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
+                  onTap: () => true,
                 ),
-                title: Text('ANO 1',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    )),
-                onTap: () => true,
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.filter_2,
-                  color: Colors.white,
+                ListTile(
+                  leading: Icon(
+                    Icons.settings,
+                    color: Theme.of(context).backgroundColor,
+                  ),
+                  title: Text(
+                    'Settings',
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
+                  onTap: () => true,
                 ),
-                title: Text('ANO 2',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    )),
-                onTap: () => true,
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.filter_3,
-                  color: Colors.white,
-                ),
-                title: Text('ANO 3',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    )),
-                onTap: () => true,
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

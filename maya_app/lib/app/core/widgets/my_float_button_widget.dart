@@ -4,33 +4,31 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class MyFloatButton extends StatelessWidget {
   final Widget? popUp;
 
-  MyFloatButton({
+  const MyFloatButton({
+    Key? key,
     this.popUp,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        showDialog(
-            context: context,
-            builder: (context) {
-              return Dialog(
-                child: popUp,
-              );
-            });
-      },
-      child: Material(
-        elevation: 10,
-        color: Colors.transparent,
+    return Material(
+      elevation: 10,
+      color: Theme.of(context).primaryColorLight,
+      borderRadius: BorderRadius.circular(100),
+      child: InkWell(
+        onTap: () {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return Dialog(
+                  child: popUp,
+                );
+              });
+        },
         borderRadius: BorderRadius.circular(100),
-        child: Container(
-          height: 8.h,
-          width: 15.w,
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-            shape: BoxShape.circle,
-          ),
+        child: SizedBox(
+          height: 7.h,
+          width: 14.w,
           child: Icon(
             Icons.add,
             color: Theme.of(context).backgroundColor,
