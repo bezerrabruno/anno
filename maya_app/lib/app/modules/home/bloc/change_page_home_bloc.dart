@@ -8,7 +8,11 @@ class ChangePageHomeBloc extends Bloc<int, int> {
   Stream<int> mapEventToState(int event) async* {
     switch (event) {
       case 0:
-        Modular.to.pushNamed('../day');
+        Modular.to.pushNamed('../days');
+        yield 0;
+        break;
+      case 1:
+        Modular.to.pushNamed('../days');
         yield 0;
         break;
     }
