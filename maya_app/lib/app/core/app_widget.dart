@@ -4,6 +4,8 @@ import 'package:maya_app/app/core/widgets/my_theme_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AppWidget extends StatelessWidget {
+  const AppWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(
