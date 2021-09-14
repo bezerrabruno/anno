@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:maya_app/app/core/widgets/my_theme_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+import 'widgets/my_theme_widget.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);

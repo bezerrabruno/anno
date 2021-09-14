@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -24,7 +25,7 @@ class MyDrawer extends StatelessWidget {
                     'Routine',
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
-                  onTap: () => true,
+                  onTap: () => Modular.to.pushNamed('/home/days'),
                 ),
                 ListTile(
                   leading: Icon(
@@ -35,7 +36,7 @@ class MyDrawer extends StatelessWidget {
                     'ANNO',
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
-                  onTap: () => true,
+                  onTap: () => Modular.to.pushNamed('/anno'),
                 ),
                 ListTile(
                   leading: Icon(
