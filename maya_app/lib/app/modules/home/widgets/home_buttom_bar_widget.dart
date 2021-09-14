@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:maya_app/app/modules/home/bloc/change_page/change_page_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomeButtomBar extends StatelessWidget {
@@ -35,7 +36,7 @@ class HomeButtomBar extends StatelessWidget {
                         indexBloc: index,
                         iconSelected: Icons.task,
                         iconUnselected: Icons.task_outlined,
-                        onTap: () => barBloc.add(0),
+                        onTap: () => barBloc.add(ChangePageEvent.dayPage),
                         onLongPress: () => show(
                           context,
                           left: 35,
@@ -44,9 +45,15 @@ class HomeButtomBar extends StatelessWidget {
                             popItem(
                               context,
                               title: 'Day',
-                              fuction: () => barBloc.add(0),
+                              fuction: () =>
+                                  barBloc.add(ChangePageEvent.dayPage),
                             ),
-                            popItem(context, title: 'Calendar'),
+                            popItem(
+                              context,
+                              title: 'Calendar',
+                              fuction: () =>
+                                  barBloc.add(ChangePageEvent.calendarPage),
+                            ),
                           ],
                         ),
                       ),
@@ -56,14 +63,24 @@ class HomeButtomBar extends StatelessWidget {
                         indexBloc: index,
                         iconSelected: Icons.timer,
                         iconUnselected: Icons.timer_off,
-                        onTap: () => barBloc.add(1),
+                        onTap: () => barBloc.add(ChangePageEvent.timerPage),
                         onLongPress: () => show(
                           context,
                           left: 150,
                           top: 640,
                           items: [
-                            popItem(context, title: 'Time'),
-                            popItem(context, title: 'Statistics'),
+                            popItem(
+                              context,
+                              title: 'Time',
+                              fuction: () =>
+                                  barBloc.add(ChangePageEvent.timerPage),
+                            ),
+                            popItem(
+                              context,
+                              title: 'Statistics',
+                              fuction: () =>
+                                  barBloc.add(ChangePageEvent.timerHistPage),
+                            ),
                           ],
                         ),
                       ),
@@ -72,14 +89,19 @@ class HomeButtomBar extends StatelessWidget {
                         index: 2,
                         indexBloc: index,
                         iconSelected: Icons.notes,
-                        iconUnselected: Icons.task_alt_outlined,
-                        onTap: () => barBloc.add(2),
+                        iconUnselected: Icons.notes_outlined,
+                        onTap: () => barBloc.add(ChangePageEvent.notesPage),
                         onLongPress: () => show(
                           context,
                           left: 265,
                           top: 688,
                           items: [
-                            popItem(context, title: 'Notes'),
+                            popItem(
+                              context,
+                              title: 'Notes',
+                              fuction: () =>
+                                  barBloc.add(ChangePageEvent.notesPage),
+                            ),
                           ],
                         ),
                       ),

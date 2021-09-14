@@ -4,10 +4,15 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '/app/core/widgets/my_drawer_widget.dart';
 import 'widgets/home_buttom_bar_widget.dart';
 
-import 'bloc/change_page_home_bloc.dart';
+import 'bloc/change_page/change_page_bloc.dart';
 
 class HomeWidget extends StatelessWidget {
-  const HomeWidget({Key? key}) : super(key: key);
+  final ChangePageBloc barBloc;
+
+  const HomeWidget({
+    Key? key,
+    required this.barBloc,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +28,7 @@ class HomeWidget extends StatelessWidget {
         child: RouterOutlet(),
       ),
       bottomNavigationBar: HomeButtomBar(
-        barBloc: Modular.get<ChangePageHomeBloc>(),
+        barBloc: barBloc,
       ),
       extendBody: true,
     );
