@@ -1,41 +1,25 @@
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:maya_app/app/modules/ano/ano_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:maya_app/app/modules/ano/anno_bloc.dart';
 
-class AnoPage extends StatefulWidget {
-  final String title;
-  const AnoPage({Key? key, this.title = 'AnoPage'}) : super(key: key);
+import 'package:maya_app/app/core/widgets/my_float_button_widget.dart';
+
+class AnnoPage extends StatefulWidget {
+  const AnnoPage({Key? key}) : super(key: key);
+
   @override
-  AnoPageState createState() => AnoPageState();
+  AnnoPageState createState() => AnnoPageState();
 }
 
-class AnoPageState extends State<AnoPage> {
-  final AnoBloc bloc = Modular.get();
+class AnnoPageState extends State<AnnoPage> {
+  final AnnoBloc bloc = Modular.get();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: <Widget>[],
-      ),
-    );
-  }
-}
-
-/*import 'package:flutter/material.dart';
-
-import 'package:maya/app/core/widgets/my_float_button_widget.dart';
-
-class AnoPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Ano 1')),
+      appBar: AppBar(title: const Text('Ano 1')),
       //endDrawer: MyDrawer(),
-      floatingActionButton: MyFloatbutton(),
+      floatingActionButton: const MyFloatButton(),
       body: ListView(
         scrollDirection: Axis.horizontal,
         children: [
@@ -79,7 +63,7 @@ Widget _card(List<Widget> itens) {
       child: Column(children: [
         ElevatedButton(
           onPressed: () => true,
-          child: Text(
+          child: const Text(
             'Novo Marco',
             style: TextStyle(
               color: Colors.black,
@@ -103,11 +87,11 @@ Widget itemCard(String texto) {
     child: SizedBox(
       child: Text(
         texto,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 18,
           color: Colors.black,
         ),
       ),
     ),
   );
-}*/
+}
