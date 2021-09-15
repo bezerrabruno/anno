@@ -15,10 +15,10 @@ class TaskModel extends Task {
 
   Map<String, dynamic> toMap() {
     return {
-      'chekBoxM': chekBoxM,
-      'descriptionM': descriptionM,
-      'typeM': typeM,
-      'priorityM': priorityM,
+      'chekBox': chekBoxM,
+      'description': descriptionM,
+      'type': typeM,
+      'priority': priorityM,
     };
   }
 

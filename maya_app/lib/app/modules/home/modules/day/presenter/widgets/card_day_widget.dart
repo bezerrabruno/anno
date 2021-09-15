@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../infra/model/task_model.dart';
@@ -9,13 +10,12 @@ import '../bloc/list_day/list_day_bloc.dart';
 class CardTask extends StatelessWidget {
   final int index;
   final TaskModel task;
-  final ListDayBloc listDayBloc;
+  final ListDayBloc listDayBloc = Modular.get();
 
-  const CardTask({
+  CardTask({
     Key? key,
     required this.index,
     required this.task,
-    required this.listDayBloc,
   }) : super(key: key);
 
   @override

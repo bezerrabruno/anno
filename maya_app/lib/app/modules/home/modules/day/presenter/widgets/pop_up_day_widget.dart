@@ -32,7 +32,7 @@ class PopUpDay extends StatelessWidget {
             Center(
               child: MyTextField(
                 title: 'Description',
-                onSaved: (text) {},
+                controller: _controllerDescription,
               ),
             ),
             const Divider(),

@@ -32,7 +32,6 @@ class ListDayWidget extends StatelessWidget {
                 key: Key('$index'),
                 index: index,
                 task: tasks[index],
-                listDayBloc: Modular.get(),
               );
             },
             onReorder: (int oldIndex, int newIndex) {

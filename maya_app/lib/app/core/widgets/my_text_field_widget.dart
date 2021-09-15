@@ -3,23 +3,20 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MyTextField extends StatelessWidget {
   final String title;
-  final Function(String?) onSaved;
-  final Function(String?)? onChanged;
+  final TextEditingController controller;
   final TextInputType? keyBoardType;
 
   const MyTextField({
     Key? key,
     required this.title,
-    required this.onSaved,
-    this.onChanged,
+    required this.controller,
     this.keyBoardType,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      onSaved: onSaved,
-      onChanged: onChanged,
+    return TextField(
+      controller: controller,
       keyboardType: keyBoardType,
       style: TextStyle(
         fontSize: 22.sp,
