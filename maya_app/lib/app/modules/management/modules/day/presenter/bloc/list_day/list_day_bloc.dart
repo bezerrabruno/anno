@@ -18,15 +18,28 @@ class ListDayBloc extends Bloc<ListDayEvent, List<TaskModel>> {
         newState.add(state[i]);
       }
       newState.add(event.task);
+
+      yield newState;
+    } else if (event is ListDayEventRemoveTask) {
+      var newState = <TaskModel>[];
+
+      for (var i = 0; i <= state.length - 1; i++) {
+        if (i != event.index) {
+          newState.add(state[i]);
+        }
+      }
+
       yield newState;
     } else if (event is ListDayEventUpdateTask) {
       var newState = <TaskModel>[];
 
       for (var i = 0; i <= state.length - 1; i++) {
-        newState.add(state[i]);
+        if (i != event.index) {
+          newState.add(state[i]);
+        } else {
+          newState.add(event.task);
+        }
       }
-
-      newState[int.tryParse(event.index.toString())!] = event.task;
 
       yield newState;
     } else if (event is ListDayEventReOrder) {

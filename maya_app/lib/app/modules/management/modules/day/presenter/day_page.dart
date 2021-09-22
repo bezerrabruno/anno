@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:maya_app/app/modules/management/modules/day/infra/model/task_model.dart';
+import 'package:maya_app/app/modules/management/modules/day/presenter/widgets/card_day_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '/app/core/widgets/my_button_widget.dart';
 import '/app/core/widgets/my_float_button_widget.dart';
 
-import 'widgets/list_day_widget.dart';
+import 'bloc/list_day/list_day_event.dart';
 import 'widgets/pop_up_day_widget.dart';
 
 import '../infra/model/day_model.dart';
@@ -87,14 +88,42 @@ class DayPageState extends State<DayPage> {
                       ),
                     );
                   } else if (state is StateFindDaySuccess) {
+                    widget.listDayBloc
+                        .add(ListDayEventInitState(state.day.tasksM!));
                     return Expanded(
-                      child: ListDayWidget(tasks: state.day.tasksM!),
+                      child: BlocBuilder<ListDayBloc, List<TaskModel>>(
+                          bloc: widget.listDayBloc,
+                          builder: (context, tasks) {
+                            widget.updateDayBloc.add(
+                              DayModel(
+                                  idNameM: widget.days[dateTime.weekday - 1],
+                                  tasksM: widget.listDayBloc.state),
+                            );
+                            return ReorderableListView.builder(
+                              itemCount: tasks.length,
+                              buildDefaultDragHandles: true,
+                              itemBuilder: (context, index) {
+                                return CardTask(
+                                  key: Key('$index'),
+                                  index: index,
+                                  task: tasks[index],
+                                );
+                              },
+                              onReorder: (int oldIndex, int newIndex) {
+                                if (oldIndex < newIndex) {
+                                  newIndex -= 1;
+                                }
+                                widget.listDayBloc.add(
+                                    ListDayEventReOrder(oldIndex, newIndex));
+                              },
+                            );
+                          }),
                     );
                   } else {
                     return const SizedBox();
                   }
                 }),
-            Padding(
+            /*Padding(
               padding: const EdgeInsets.all(8.0),
               child: Center(
                 child: MyButton(
@@ -109,39 +138,10 @@ class DayPageState extends State<DayPage> {
                   },
                 ),
               ),
-            ),
+            ),*/
           ],
         ),
       ),
     );
   }
-
-  /*Padding(
-            padding: const EdgeInsets.only(left: 8, top: 8),
-            child: SizedBox(
-              height: 40,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  _test(),
-                  _test(),
-                  _test(),
-                  _test(),
-                  _test(),
-                  _test(),
-                ],
-              ),
-            ),
-          ),*/
-
-  /*Widget _test() {
-    return Container(
-      height: 40,
-      width: 100,
-      decoration: BoxDecoration(
-        color: Theme.of(context).primaryColorLight,
-        borderRadius: BorderRadius.circular(26),
-      ),
-    );
-  }*/
 }

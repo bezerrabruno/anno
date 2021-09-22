@@ -4,9 +4,9 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class MyTheme {
   static ThemeData lightTheme() {
     return ThemeData(
-      primaryColor: const Color(0xFF3772A6),
-      primaryColorLight: const Color(0xFF466aa1),
-      primaryColorDark: const Color(0xFF094072),
+      primaryColor: const Color(0xFF2350D9),
+      primaryColorLight: const Color(0xFF6481D9),
+      primaryColorDark: const Color(0xFF16348C),
       primaryColorBrightness: Brightness.light,
       backgroundColor: const Color(0xFFffffff),
       scaffoldBackgroundColor: const Color(0xFFffffff),

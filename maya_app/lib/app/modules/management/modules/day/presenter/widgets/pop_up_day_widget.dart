@@ -12,13 +12,14 @@ import '../bloc/list_day/list_day_event.dart';
 class PopUpDay extends StatelessWidget {
   final ListDayBloc _listDayBloc = Modular.get();
   final TextEditingController _controllerDescription = TextEditingController();
+  final TextEditingController _controllerType = TextEditingController();
 
   PopUpDay({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 25.h,
+      height: 35.h,
       width: 35.w,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -35,7 +36,15 @@ class PopUpDay extends StatelessWidget {
                 controller: _controllerDescription,
               ),
             ),
-            const Divider(),
+            Center(
+              child: MyTextField(
+                title: 'Type',
+                controller: _controllerType,
+              ),
+            ),
+            SizedBox(
+              height: 1.h,
+            ),
             MyButton(
               title: 'Confirmar',
               width: 20.w,
@@ -53,7 +62,7 @@ class PopUpDay extends StatelessWidget {
     _listDayBloc.add(ListDayEventAddTask(TaskModel(
       chekBoxM: false,
       descriptionM: _controllerDescription.text,
-      priorityM: '',
+      priorityM: _controllerType.text,
     )));
     Navigator.pop(context);
   }
