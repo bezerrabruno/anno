@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 
-import 'package:maya_app/app/modules/home/modules/day/infra/model/task_model.dart';
+import 'package:maya_app/app/modules/management/modules/day/infra/model/task_model.dart';
 
 class CardDayBloc extends Bloc<TaskModel, TaskModel> {
   CardDayBloc()

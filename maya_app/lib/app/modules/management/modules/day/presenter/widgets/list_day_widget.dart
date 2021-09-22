@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'package:maya_app/app/modules/home/modules/day/infra/model/task_model.dart';
-import 'package:maya_app/app/modules/home/modules/day/presenter/bloc/list_day/list_day_bloc.dart';
-import 'package:maya_app/app/modules/home/modules/day/presenter/bloc/list_day/list_day_event.dart';
+import '/app/modules/management/modules/day/infra/model/task_model.dart';
+import '/app/modules/management/modules/day/presenter/bloc/list_day/list_day_bloc.dart';
+import '/app/modules/management/modules/day/presenter/bloc/list_day/list_day_event.dart';
 
 import 'card_day_widget.dart';
 

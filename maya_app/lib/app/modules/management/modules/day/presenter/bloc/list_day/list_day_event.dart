@@ -1,4 +1,4 @@
-import 'package:maya_app/app/modules/home/modules/day/infra/model/task_model.dart';
+import 'package:maya_app/app/modules/management/modules/day/infra/model/task_model.dart';
 
 class ListDayEvent {
   const ListDayEvent();

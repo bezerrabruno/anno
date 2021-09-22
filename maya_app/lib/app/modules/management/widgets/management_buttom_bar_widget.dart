@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:maya_app/app/modules/home/bloc/change_page/change_page_bloc.dart';
+import 'package:maya_app/app/modules/management/bloc/change_page/change_page_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class HomeButtomBar extends StatelessWidget {
+class ManagementButtomBar extends StatelessWidget {
   final Bloc<dynamic, int> barBloc;
 
-  const HomeButtomBar({
+  const ManagementButtomBar({
     Key? key,
     required this.barBloc,
   }) : super(key: key);
@@ -17,13 +17,13 @@ class HomeButtomBar extends StatelessWidget {
       bloc: barBloc,
       builder: (context, index) {
         return Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
           child: Material(
             color: Theme.of(context).primaryColor,
             elevation: 10,
             borderRadius: BorderRadius.circular(32),
             child: SizedBox(
-              height: kToolbarHeight,
+              height: 6.5.h,
               width: double.maxFinite,
               child: Stack(
                 children: [
@@ -39,8 +39,8 @@ class HomeButtomBar extends StatelessWidget {
                         onTap: () => barBloc.add(ChangePageEvent.dayPage),
                         onLongPress: () => show(
                           context,
-                          left: 35,
-                          top: 640,
+                          left: 9.w,
+                          top: 78.5.h,
                           items: [
                             popItem(
                               context,
@@ -66,8 +66,8 @@ class HomeButtomBar extends StatelessWidget {
                         onTap: () => barBloc.add(ChangePageEvent.timerPage),
                         onLongPress: () => show(
                           context,
-                          left: 150,
-                          top: 640,
+                          left: 36.w,
+                          top: 78.5.h,
                           items: [
                             popItem(
                               context,
@@ -93,8 +93,8 @@ class HomeButtomBar extends StatelessWidget {
                         onTap: () => barBloc.add(ChangePageEvent.notesPage),
                         onLongPress: () => show(
                           context,
-                          left: 265,
-                          top: 688,
+                          left: 64.w,
+                          top: 84.3.h,
                           items: [
                             popItem(
                               context,
