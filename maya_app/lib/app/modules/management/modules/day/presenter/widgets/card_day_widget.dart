@@ -44,7 +44,6 @@ class CardTask extends StatelessWidget {
                         chekBoxM: newValue,
                         descriptionM: task.description,
                         priorityM: task.priority,
-                        typeM: task.type,
                       );
                       listDayBloc.add(ListDayEventUpdateTask(index, newTesk));
                     }),

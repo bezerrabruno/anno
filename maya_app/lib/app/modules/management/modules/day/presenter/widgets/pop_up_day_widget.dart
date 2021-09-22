@@ -54,7 +54,6 @@ class PopUpDay extends StatelessWidget {
       chekBoxM: false,
       descriptionM: _controllerDescription.text,
       priorityM: '',
-      typeM: '',
     )));
     Navigator.pop(context);
   }

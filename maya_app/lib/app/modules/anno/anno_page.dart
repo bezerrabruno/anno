@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:maya_app/app/modules/ano/anno_bloc.dart';
+import 'package:maya_app/app/modules/anno/anno_bloc.dart';
 
 import 'package:maya_app/app/core/widgets/my_float_button_widget.dart';
 

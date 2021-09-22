@@ -3,21 +3,18 @@ import '../../domain/entities/task.dart';
 class TaskModel extends Task {
   final bool? chekBoxM;
   final String? descriptionM;
-  final String? typeM;
   final String? priorityM;
 
   TaskModel({
     this.chekBoxM,
     this.descriptionM,
-    this.typeM,
     this.priorityM,
-  }) : super(chekBoxM, descriptionM, typeM, priorityM);
+  }) : super(chekBoxM, descriptionM, priorityM);
 
   Map<String, dynamic> toMap() {
     return {
       'chekBox': chekBoxM,
       'description': descriptionM,
-      'type': typeM,
       'priority': priorityM,
     };
   }
@@ -28,7 +25,6 @@ class TaskModel extends Task {
       final TaskModel _task = TaskModel(
         chekBoxM: row['chekBox'],
         descriptionM: row['description'],
-        typeM: row['type'],
         priorityM: row['priority'],
       );
       _tasks.add(_task);

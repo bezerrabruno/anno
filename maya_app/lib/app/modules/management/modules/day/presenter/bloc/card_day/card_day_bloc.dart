@@ -4,8 +4,7 @@ import 'package:maya_app/app/modules/management/modules/day/infra/model/task_mod
 
 class CardDayBloc extends Bloc<TaskModel, TaskModel> {
   CardDayBloc()
-      : super(TaskModel(
-            chekBoxM: false, descriptionM: '', priorityM: '', typeM: ''));
+      : super(TaskModel(chekBoxM: false, descriptionM: '', priorityM: ''));
 
   @override
   Stream<TaskModel> mapEventToState(TaskModel event) async* {
@@ -13,7 +12,6 @@ class CardDayBloc extends Bloc<TaskModel, TaskModel> {
       chekBoxM: event.chekBox ?? state.chekBox,
       descriptionM: event.description ?? state.description,
       priorityM: event.priority ?? state.priority,
-      typeM: event.type ?? state.type,
     );
   }
 }
