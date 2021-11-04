@@ -1,15 +1,21 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../modules/management/management_module.dart';
+import 'bloc/connection/connection_bloc.dart';
+import 'bloc/theme/theme_bloc.dart';
+
+import '../modules/routine/routine_module.dart';
 import '../modules/anno/anno_module.dart';
 
 class AppModule extends Module {
   @override
-  final List<Bind> binds = [];
+  List<Bind> get binds => [
+        Bind.lazySingleton((i) => ThemeBloc()),
+        Bind.lazySingleton((i) => ConnectionBloc()),
+      ];
 
   @override
-  final List<ModularRoute> routes = [
-    ModuleRoute('/management', module: ManagementModule()),
-    ModuleRoute('/anno', module: AnnoModule()),
-  ];
+  List<ModularRoute> get routes => [
+        ModuleRoute('/routine', module: RoutineModule()),
+        ModuleRoute('/anno', module: AnnoModule()),
+      ];
 }
