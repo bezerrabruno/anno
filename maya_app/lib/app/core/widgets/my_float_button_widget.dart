@@ -27,12 +27,12 @@ class MyFloatButton extends StatelessWidget {
         },
         borderRadius: BorderRadius.circular(100),
         child: SizedBox(
-          height: 7.h,
-          width: 14.w,
+          height: 55,
+          width: 55,
           child: Icon(
             Icons.add,
             color: Theme.of(context).backgroundColor,
-            size: 36,
+            size: 26.sp,
           ),
         ),
       ),
