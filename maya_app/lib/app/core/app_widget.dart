@@ -38,7 +38,7 @@ class _AppWidgetState extends State<AppWidget> {
           testConnection();
           return MaterialApp(
             title: 'Maya',
-            initialRoute: '/routine/days/',
+            initialRoute: '/routine/tasks/',
             theme: MyTheme.lightTheme(),
             darkTheme: MyTheme.darkTheme(),
             themeMode: theme,
