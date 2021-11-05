@@ -41,7 +41,7 @@ class _AppWidgetState extends State<AppWidget> {
             initialRoute: '/routine/days/',
             theme: MyTheme.lightTheme(),
             darkTheme: MyTheme.darkTheme(),
-            themeMode: ThemeMode.system,
+            themeMode: theme,
           ).modular();
         },
       );
