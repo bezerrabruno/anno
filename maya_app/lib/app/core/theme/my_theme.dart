@@ -4,12 +4,21 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class MyTheme {
   static ThemeData lightTheme() {
     return ThemeData(
-      primaryColor: const Color(0xFF2350D9),
-      primaryColorLight: const Color(0xFF6481D9),
-      primaryColorDark: const Color(0xFF16348C),
-      primaryColorBrightness: Brightness.light,
-      backgroundColor: const Color(0xFFffffff),
-      scaffoldBackgroundColor: const Color(0xFFffffff),
+      colorScheme: const ColorScheme(
+        primary: Color(0xFF1470C8),
+        primaryVariant: Color(0xFF2350D9),
+        onPrimary: Color(0xFFFFFFFF),
+        secondary: Color(0xFFF09F1A),
+        secondaryVariant: Color(0xFFBD7C15),
+        onSecondary: Color(0xFF000000),
+        surface: Color(0xFF4073A3),
+        onSurface: Color(0xFFFFFFFF),
+        background: Color(0xFFFFFFFF),
+        onBackground: Color(0xFF000000),
+        error: Color(0xFFF00C00),
+        onError: Color(0xFF000000),
+        brightness: Brightness.light,
+      ),
       textTheme: TextTheme(
         headline2: TextStyle(
           color: const Color(0xFFffffff),
