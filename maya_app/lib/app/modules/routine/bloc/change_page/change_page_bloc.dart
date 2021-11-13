@@ -3,7 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 enum ChangePageEvent {
   taskspage,
-  timerPage,
+  timePage,
   goalsPage,
 }
 
@@ -17,12 +17,12 @@ class ChangePageBloc extends Bloc<ChangePageEvent, int> {
         Modular.to.pushNamed('../tasks/');
         yield 0;
         break;
-      case ChangePageEvent.timerPage:
-        Modular.to.pushNamed('../tasks/');
+      case ChangePageEvent.timePage:
+        Modular.to.pushNamed('../time/');
         yield 1;
         break;
       case ChangePageEvent.goalsPage:
-        Modular.to.pushNamed('../tasks/');
+        Modular.to.pushNamed('../goals/');
         yield 2;
         break;
     }

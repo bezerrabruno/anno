@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
-import 'package:maya_app/app/core/bloc/connection/connection_bloc.dart';
-
+import '/app/core/widgets/my_card_error.dart';
 import '/app/core/widgets/my_drawer_widget.dart';
-import 'bloc/change_wallpaper/change_wallpaper_bloc.dart';
-import 'widgets/routine_buttom_bar_widget.dart';
 
+import 'bloc/change_wallpaper/change_wallpaper_bloc.dart';
 import 'bloc/change_page/change_page_bloc.dart';
+import 'widgets/routine_buttom_bar_widget.dart';
 
 class RoutineWidget extends StatefulWidget {
   const RoutineWidget({
@@ -21,7 +19,6 @@ class RoutineWidget extends StatefulWidget {
 }
 
 class _RoutineWidgetState extends State<RoutineWidget> {
-  final ConnectionBloc connectionBloc = Modular.get();
   final ChangeWallpaperBloc wallpaperBloc = Modular.get();
   final ChangePageBloc barBloc = Modular.get();
 
@@ -29,6 +26,8 @@ class _RoutineWidgetState extends State<RoutineWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       endDrawer: const MyDrawer(),
+      bottomNavigationBar: RoutineButtomBar(bloc: barBloc),
+      extendBody: true,
       body: Stack(
         children: [
           BlocBuilder<ChangeWallpaperBloc, String>(
@@ -44,38 +43,9 @@ class _RoutineWidgetState extends State<RoutineWidget> {
                   child: RouterOutlet(),
                 );
               }),
-          Align(
-            heightFactor: 0.8.h,
-            child: BlocBuilder<ConnectionBloc, String>(
-                bloc: connectionBloc,
-                builder: (context, state) {
-                  if (state == 'none') {
-                    return Container(
-                      height: 4.h,
-                      width: 70.w,
-                      color: Colors.red,
-                      child: Center(
-                        child: Text(
-                          'Connection Lost',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ),
-                    );
-                  } else {
-                    return const SizedBox();
-                  }
-                }),
-          ),
+          MyCardError(),
         ],
       ),
-      bottomNavigationBar: RoutineButtomBar(
-        bloc: barBloc,
-      ),
-      extendBody: true,
     );
   }
 }

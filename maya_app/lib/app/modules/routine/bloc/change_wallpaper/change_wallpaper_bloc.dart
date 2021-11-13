@@ -12,9 +12,7 @@ class ChangeWallpaperBloc extends Bloc<ChangeWallpaperEvent, String> {
     } else if (event.wallpaper == 2) {
       emit('image2.jpg');
     } else if (event.wallpaper == 3) {
-      emit('image3.jpg');
-    } else if (event.wallpaper == 4) {
-      emit('image4.jpg');
+      emit('image3.png');
     }
   }
 }
