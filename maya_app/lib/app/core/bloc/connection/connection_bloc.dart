@@ -4,7 +4,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'connection_event.dart';
 
 class ConnectionBloc extends Bloc<ConnectionEvent, String> {
-  ConnectionBloc() : super('null') {
+  ConnectionBloc() : super('none') {
     on<Connection>(conection);
   }
   void conection(event, emit) {
