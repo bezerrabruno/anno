@@ -13,7 +13,7 @@ class MyFloatButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 10,
-      color: Theme.of(context).primaryColorLight,
+      color: Theme.of(context).colorScheme.primary,
       borderRadius: BorderRadius.circular(100),
       child: InkWell(
         onTap: () {
@@ -29,10 +29,12 @@ class MyFloatButton extends StatelessWidget {
         child: SizedBox(
           height: 55,
           width: 55,
-          child: Icon(
-            Icons.add,
-            color: Theme.of(context).backgroundColor,
-            size: 26.sp,
+          child: Center(
+            child: Icon(
+              Icons.add,
+              color: Theme.of(context).colorScheme.onPrimary,
+              size: 26.sp,
+            ),
           ),
         ),
       ),
