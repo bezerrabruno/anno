@@ -1,0 +1,3 @@
+class AnswersTasks {
+  const AnswersTasks();
+}
