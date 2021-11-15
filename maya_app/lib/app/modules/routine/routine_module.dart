@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'bloc/change_page/change_page_bloc.dart';
-import 'bloc/change_wallpaper/change_wallpaper_bloc.dart';
+import 'bloc/page_routine/page_routine_bloc.dart';
+import 'bloc/wallpaper_routine/wallpaper_routine_bloc.dart';
 
 import 'routine_widget.dart';
 
@@ -12,8 +12,8 @@ import 'modules/tasks/tasks_module.dart';
 class RoutineModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => ChangePageBloc()),
-    Bind.lazySingleton((i) => ChangeWallpaperBloc()),
+    Bind.lazySingleton((i) => PageRoutineBloc()),
+    Bind.lazySingleton((i) => WallpaperRoutineBloc()),
   ];
 
   @override

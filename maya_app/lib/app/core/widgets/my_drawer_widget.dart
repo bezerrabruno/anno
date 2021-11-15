@@ -8,11 +8,11 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 40.w,
-      height: 98.h,
+      width: 41.w,
+      height: 100.h,
       child: Drawer(
         child: Container(
-          color: Theme.of(context).primaryColorDark,
+          color: Theme.of(context).colorScheme.primary,
           child: SafeArea(
             child: Column(
               children: [
@@ -25,7 +25,7 @@ class MyDrawer extends StatelessWidget {
                     'Routine',
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
-                  onTap: () => Modular.to.pushNamed('/home/days'),
+                  onTap: () => Modular.to.pushNamed('/routine/tasks/'),
                 ),
                 ListTile(
                   leading: Icon(

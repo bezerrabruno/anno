@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'change_wallpaper_event.dart';
+import 'wallpaper_routine_event.dart';
 
-class ChangeWallpaperBloc extends Bloc<ChangeWallpaperEvent, String> {
-  ChangeWallpaperBloc() : super('image2.jpg') {
-    on<ChangeWallpaper>(changeWallpaper);
+class WallpaperRoutineBloc extends Bloc<WallpaperEvent, String> {
+  WallpaperRoutineBloc() : super('image2.jpg') {
+    on<EWChangeWallpaper>(changeWallpaper);
   }
   void changeWallpaper(event, emit) {
     if (event.wallpaper == 1) {

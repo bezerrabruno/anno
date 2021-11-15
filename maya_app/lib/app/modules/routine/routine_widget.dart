@@ -5,8 +5,9 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '/app/core/widgets/my_card_error.dart';
 import '/app/core/widgets/my_drawer_widget.dart';
 
-import 'bloc/change_wallpaper/change_wallpaper_bloc.dart';
-import 'bloc/change_page/change_page_bloc.dart';
+import 'bloc/page_routine/page_routine_bloc.dart';
+import 'bloc/wallpaper_routine/wallpaper_routine_bloc.dart';
+
 import 'widgets/routine_buttom_bar_widget.dart';
 
 class RoutineWidget extends StatefulWidget {
@@ -19,18 +20,18 @@ class RoutineWidget extends StatefulWidget {
 }
 
 class _RoutineWidgetState extends State<RoutineWidget> {
-  final ChangeWallpaperBloc wallpaperBloc = Modular.get();
-  final ChangePageBloc barBloc = Modular.get();
+  final WallpaperRoutineBloc wallpaperBloc = Modular.get();
+  final PageRoutineBloc pageBloc = Modular.get();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       endDrawer: const MyDrawer(),
-      bottomNavigationBar: RoutineButtomBar(bloc: barBloc),
+      bottomNavigationBar: RoutineButtomBar(pageBloc: pageBloc),
       extendBody: true,
       body: Stack(
         children: [
-          BlocBuilder<ChangeWallpaperBloc, String>(
+          BlocBuilder<WallpaperRoutineBloc, String>(
               bloc: wallpaperBloc,
               builder: (context, state) {
                 return Container(

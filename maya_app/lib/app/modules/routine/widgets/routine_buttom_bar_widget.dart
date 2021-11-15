@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../bloc/change_page/change_page_bloc.dart';
+import '../bloc/page_routine/page_routine_bloc.dart';
+import '../bloc/page_routine/page_routine_event.dart';
 
 class RoutineButtomBar extends StatelessWidget {
-  final ChangePageBloc bloc;
+  final PageRoutineBloc pageBloc;
 
   const RoutineButtomBar({
     Key? key,
-    required this.bloc,
+    required this.pageBloc,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ChangePageBloc, int>(
-      bloc: bloc,
+    return BlocBuilder<PageRoutineBloc, int>(
+      bloc: pageBloc,
       builder: (context, index) {
         return Padding(
           padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
@@ -36,7 +37,7 @@ class RoutineButtomBar extends StatelessWidget {
                     indexBloc: index,
                     iconSelected: Icons.task,
                     iconUnselected: Icons.task_outlined,
-                    onTap: () => bloc.add(ChangePageEvent.taskspage),
+                    onTap: () => pageBloc.add(const EPRChangePage(page: 0)),
                   ),
                   _iconButton(
                     context,
@@ -45,7 +46,7 @@ class RoutineButtomBar extends StatelessWidget {
                     indexBloc: index,
                     iconSelected: Icons.timer,
                     iconUnselected: Icons.timer_off,
-                    onTap: () => bloc.add(ChangePageEvent.timePage),
+                    onTap: () => pageBloc.add(const EPRChangePage(page: 1)),
                   ),
                   _iconButton(
                     context,
@@ -54,7 +55,7 @@ class RoutineButtomBar extends StatelessWidget {
                     indexBloc: index,
                     iconSelected: Icons.show_chart,
                     iconUnselected: Icons.show_chart_rounded,
-                    onTap: () => bloc.add(ChangePageEvent.goalsPage),
+                    onTap: () => pageBloc.add(const EPRChangePage(page: 2)),
                   ),
                 ],
               ),

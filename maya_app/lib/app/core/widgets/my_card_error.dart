@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:maya_app/app/core/bloc/connection/connection_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:maya_app/app/core/bloc/connection/connection_bloc.dart';
 
 class MyCardError extends StatelessWidget {
   final ConnectionBloc connectionBloc = Modular.get();

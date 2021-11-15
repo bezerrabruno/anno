@@ -50,7 +50,7 @@ class _AppWidgetState extends State<AppWidget> {
 
   void testConnection() {
     Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
-      connectionBloc.add(Connection((result)));
+      connectionBloc.add(ECEConnection((result)));
     });
   }
 }

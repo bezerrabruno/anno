@@ -5,7 +5,7 @@ import 'connection_event.dart';
 
 class ConnectionBloc extends Bloc<ConnectionEvent, String> {
   ConnectionBloc() : super('none') {
-    on<Connection>(conection);
+    on<ECEConnection>(conection);
   }
   void conection(event, emit) {
     if (event.connection == ConnectivityResult.none) {

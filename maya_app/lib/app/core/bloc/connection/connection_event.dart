@@ -1,7 +1,13 @@
-abstract class ConnectionEvent {}
+abstract class ConnectionEvent {
+  const ConnectionEvent();
+}
 
-class Connection extends ConnectionEvent {
+// 1° sigla = E == event
+// 2° sigla = className
+// Event
+
+class ECEConnection extends ConnectionEvent {
   final dynamic connection;
 
-  Connection(this.connection);
+  const ECEConnection(this.connection);
 }

@@ -2,8 +2,12 @@ abstract class ThemeEvent {
   const ThemeEvent();
 }
 
-class ChangeThemeEvent extends ThemeEvent {
+// 1° sigla = E == event
+// 2° sigla = className
+// Event
+
+class ETEChangeTheme extends ThemeEvent {
   final int theme;
 
-  const ChangeThemeEvent(this.theme);
+  const ETEChangeTheme(this.theme);
 }

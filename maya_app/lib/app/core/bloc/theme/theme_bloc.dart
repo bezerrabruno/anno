@@ -5,7 +5,7 @@ import 'theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   ThemeBloc() : super(const ThemeState(2)) {
-    on<ChangeThemeEvent>(chengeTheme);
+    on<ETEChangeTheme>(chengeTheme);
   }
 
   void chengeTheme(event, emit) {
