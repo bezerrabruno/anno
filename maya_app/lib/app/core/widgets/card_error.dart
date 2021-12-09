@@ -4,10 +4,10 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:maya_app/app/core/bloc/connection/connection_bloc.dart';
 
-class MyCardError extends StatelessWidget {
+class CardError extends StatelessWidget {
   final ConnectionBloc connectionBloc = Modular.get();
 
-  MyCardError({Key? key}) : super(key: key);
+  CardError({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

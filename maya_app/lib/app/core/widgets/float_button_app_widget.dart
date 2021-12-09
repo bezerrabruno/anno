@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class MyFloatButton extends StatelessWidget {
+class FloatButtonApp extends StatelessWidget {
   final Widget? popUp;
 
-  const MyFloatButton({
+  const FloatButtonApp({
     Key? key,
     this.popUp,
   }) : super(key: key);

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class MyTextField extends StatelessWidget {
+class Colector extends StatelessWidget {
   final String title;
   final TextEditingController controller;
   final TextInputType? keyBoardType;
 
-  const MyTextField({
+  const Colector({
     Key? key,
     required this.title,
     required this.controller,
