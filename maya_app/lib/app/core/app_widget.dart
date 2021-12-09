@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -29,13 +28,13 @@ class _AppWidgetState extends State<AppWidget> with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
     if (state == AppLifecycleState.resumed) {
-      print('Resumed');
+      //print('Resumed');
     } else if (state == AppLifecycleState.paused) {
-      print('Paused');
+      //print('Paused');
     } else if (state == AppLifecycleState.inactive) {
-      print('Inactive');
+      //print('Inactive');
     } else if (state == AppLifecycleState.detached) {
-      print('Detached');
+      //print('Detached');
     }
   }
 
