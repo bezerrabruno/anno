@@ -1,3 +1,0 @@
-class AnswersTasks {
-  const AnswersTasks();
-}
